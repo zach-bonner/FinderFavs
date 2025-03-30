@@ -25,7 +25,7 @@ class StatusBarController {
         self.favoritesStore = favoritesStore
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "star.fill", accessibilityDescription: "Favorites")
+            button.image = NSImage(systemSymbolName: "heart.circle.fill", accessibilityDescription: "Favorites")
             button.action = #selector(togglePopover(_:))
             button.target = self
         }
