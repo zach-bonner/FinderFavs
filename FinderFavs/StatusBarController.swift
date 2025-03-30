@@ -14,7 +14,7 @@ class StatusBarController {
         let popover = NSPopover()
         popover.contentSize = NSSize(width: 300, height: 400)
         popover.behavior = .transient
-        let contentView = StatusBarFavoritesView().environmentObject(favoritesStore)
+        let contentView = StatusBarContentView().environmentObject(favoritesStore)
         popover.contentViewController = NSHostingController(rootView: contentView)
         return popover
     }()

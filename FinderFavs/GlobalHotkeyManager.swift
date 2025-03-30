@@ -28,7 +28,6 @@ class GlobalHotkeyManager {
             print("Hotkey registered successfully")
         }
 
-        // Install handler
         let eventSpec = EventTypeSpec(eventClass: OSType(kEventClassKeyboard),
                                       eventKind: UInt32(kEventHotKeyPressed))
 

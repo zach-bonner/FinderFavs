@@ -12,17 +12,15 @@ struct StatusBarFavoritesView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Favorites")
-                .font(.headline)
-                .padding([.top, .horizontal])
-            Divider()
             List {
                 ForEach(favoritesStore.favorites) { item in
-                    HStack {
+                    HStack(spacing: 8) {
                         let icon = NSWorkspace.shared.icon(forFile: item.url.path)
                         Image(nsImage: icon)
                             .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .frame(width: 24, height: 24)
+                            .cornerRadius(4)
                         Button(action: {
                             NSWorkspace.shared.open(item.url)
                         }) {
@@ -41,6 +39,7 @@ struct StatusBarFavoritesView: View {
                 }
                 .onDelete(perform: favoritesStore.removeFavorites)
             }
+            .listStyle(PlainListStyle())
         }
         .frame(width: 300, height: 400)
     }
